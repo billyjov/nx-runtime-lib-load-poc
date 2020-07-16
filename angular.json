@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "npp-root": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/npp-root",
+      "sourceRoot": "apps/npp-root/src",
+      "prefix": "npp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/npp-root",
+            "index": "apps/npp-root/src/index.html",
+            "main": "apps/npp-root/src/main.ts",
+            "polyfills": "apps/npp-root/src/polyfills.ts",
+            "tsConfig": "apps/npp-root/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/npp-root/src/favicon.ico",
+              "apps/npp-root/src/assets"
+            ],
+            "styles": ["apps/npp-root/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/npp-root/src/environments/environment.ts",
+                  "with": "apps/npp-root/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "npp-root:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "npp-root:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "npp-root:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/npp-root/tsconfig.app.json",
+              "apps/npp-root/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/npp-root/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/npp-root/jest.config.js",
+            "tsConfig": "apps/npp-root/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/npp-root/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "npp-root-e2e": {
+      "root": "apps/npp-root-e2e",
+      "sourceRoot": "apps/npp-root-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/npp-root-e2e/cypress.json",
+            "tsConfig": "apps/npp-root-e2e/tsconfig.e2e.json",
+            "devServerTarget": "npp-root:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "npp-root:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/npp-root-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/npp-root-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "npp-root"
+}
