@@ -28,6 +28,9 @@
     "npp-root-e2e": {
       "tags": [],
       "implicitDependencies": ["npp-root"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
