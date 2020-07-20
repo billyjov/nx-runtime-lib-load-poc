@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": [],
+    "module": "esNext"
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
   // "include": [

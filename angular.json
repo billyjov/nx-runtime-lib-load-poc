@@ -25,8 +25,12 @@
               "apps/npp-root/src/favicon.ico",
               "apps/npp-root/src/assets"
             ],
-            "styles": ["apps/npp-root/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/npp-root/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/systemjs/dist/system.src.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -83,7 +87,10 @@
               "apps/npp-root/tsconfig.app.json",
               "apps/npp-root/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/npp-root/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/npp-root/**/*"
+            ]
           }
         },
         "test": {
@@ -118,8 +125,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/npp-root-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/npp-root-e2e/**/*"]
+            "tsConfig": [
+              "apps/npp-root-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/npp-root-e2e/**/*"
+            ]
           }
         }
       }
@@ -149,7 +161,10 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/**/*"
+            ]
           }
         },
         "test": {

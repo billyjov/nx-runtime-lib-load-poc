@@ -5,10 +5,14 @@ import { RouterModule, Routes, PreloadAllModules, Router } from '@angular/router
 
 
 const routes: Routes = [
-  {
-    path: 'ui',
-    // loadChildren: () => import('@npp/ui').then(m => m.UiModule)
-  },
+  // {
+  //   path: 'ui',
+  //   // loadChildren: () => import('@npp/ui').then(m => m.UiModule)
+  //   loadChildren: async () => {
+  //     const a = await import('@npp/ui')
+  //     return a['AdminModule'];
+  //   }
+  // },
 
 ];
 

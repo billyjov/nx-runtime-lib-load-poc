@@ -1,0 +1,9 @@
+[
+  {
+    "path": "ui",
+    "location": "assets/js/npp-ui.umd.min.js",
+    "moduleName": "UiModule",
+    "description": "Library for ui",
+    "registered": true
+  }
+]
