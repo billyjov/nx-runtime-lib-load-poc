@@ -74,7 +74,7 @@ export class ModuleService {
 
   loadModuleSystemJS(moduleInfo: ModuleData): Promise<any> {
     // console.log(typeof SystemJS.set);
-    const url = `${environment.moduleBaseurl}/${moduleInfo.location}`;
+    const url = `${environment.moduleBaseurl}/${moduleInfo.location}?t=${new Date().getTime()}`;
     console.log('URL LOADMODULESYSTEMJS', url);
 
     SystemJS.set('@angular/core', SystemJS.newModule(AngularCore));

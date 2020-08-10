@@ -22,16 +22,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.moduleService.loadModules().subscribe(res => {
-      res.forEach(moduleToEnable => {
+    // this.moduleService.loadModules().subscribe(res => {
+    //   res.forEach(moduleToEnable => {
 
-        console.log('module x was loaded: ', moduleToEnable)
-        if (moduleToEnable.registered)
-          console.log('module x was registereds: ', moduleToEnable)
-        this.registerRoute(moduleToEnable);
-        // this.registerRoute(moduleToEnable);
-      })
-    });
+    //     console.log('module x was loaded: ', moduleToEnable)
+    //     if (moduleToEnable.registered)
+    //       console.log('module x was registereds: ', moduleToEnable)
+    //     this.registerRoute(moduleToEnable);
+    //     // this.registerRoute(moduleToEnable);
+    //   })
+    // });
   }
 
   enableModule(moduleToEnable: ModuleData) {

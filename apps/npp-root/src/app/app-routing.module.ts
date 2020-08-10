@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { RouterModule, Routes, PreloadAllModules, Router } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
+import { loadModule } from './external-deps';
 
 
 const routes: Routes = [
-  // {
-  //   path: 'ui',
-  //   // loadChildren: () => import('@npp/ui').then(m => m.UiModule)
-  //   loadChildren: async () => {
-  //     const a = await import('@npp/ui')
-  //     return a['AdminModule'];
-  //   }
-  // },
+  {
+    path: 'ui',
+    loadChildren: () => loadModule(`assets/js/npp-ui.umd.min.js?t=${new Date().getTime()}`)
+      .then(module => {
+        console.log('module: ', module);
 
+        return module.npp['ui'].UiModule;
+      })
+  }
 ];
 
 
