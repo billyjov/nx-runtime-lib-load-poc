@@ -28,7 +28,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build:ui": "ng run ui:build && cp dist/libs/ui/bundles/npp-ui.umd.min.js apps/npp-root/src/assets/js"
+    "build:ui": "ng run ui:build && cp -ru dist/libs/ui/bundles/* apps/npp-root/src/assets/js"
   },
   "private": true,
   "dependencies": {
